@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-color: #09090b; /* zinc-950 */
+    --accent-color: #3b82f6; /* blue-500 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-color);
+    /* Set Inter as the global default font */
+    font-family: 'Inter', sans-serif;
+    color: white;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    /* Crucial for Framer Motion and Sticky elements */
+    overflow-x: hidden;
+  }
+
+  /* Standardizing Heading Typography across all pages */
+  h1, h2, h3, h4 {
+    font-family: 'Inter', sans-serif;
+    @apply tracking-tighter font-black uppercase;
+  }
+
+  /* Standardizing Technical Typography (Navbar, Stats, Labels) */
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace !important;
+  }
+}
+
+/* Custom Scrollbar - Minimalist Style */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a; /* zinc-800 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Layered Utilities */
+@layer components {
+  /* Glassmorphism base for Modals and Navbars */
+  .glass-effect {
+    @apply bg-zinc-950/40 backdrop-blur-3xl border border-white/10;
+  }
+
+  /* Custom button style to replace .project_button */
+  .btn-primary {
+    @apply px-6 py-3 bg-white text-black font-bold rounded-xl 
+           hover:bg-blue-600 hover:text-white transition-all duration-300;
+  }
+}
+
+/* Selection color */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+
+
